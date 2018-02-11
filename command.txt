@@ -1,2 +1,9 @@
-C:\Users\sagr17>heroku pg:psql postgresql-slippery-12804 -d d2b9gisbnmjjan -U eyhvfrlyzlieec -p 7ca9a9b21f4e606de2b8774549823cedb19058fdc967da143a380b7b065caa10
- --app sportiz
+heroku pg:psql postgresql-slippery-12804 --app sportiz
+\c d2b9gisbnmjjan;
+\dt
+	select * from context_menu;
+
+insert into context_menu values (1, 'Football', 'fa fa-chevron-circle-right', 'football');
+insert into context_menu values (2, 'Baseball', 'fa fa-futbol-o', 'baseball');
+insert into context_menu values (3, 'Basket Ball', 'fa fa-certificate', 'basketball');
+insert into context_menu values (4, 'Soccer', 'fa fa-soccer-ball-o', 'soccer');
