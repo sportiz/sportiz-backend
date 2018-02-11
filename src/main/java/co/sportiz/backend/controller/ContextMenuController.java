@@ -9,7 +9,7 @@ public class ContextMenuController {
 	
 	@RequestMapping("/")
 	public @ResponseBody String home() {
-		return "Hello World!";
+		return "Hello Shashank!";
 	}
 
 }
