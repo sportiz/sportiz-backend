@@ -29,6 +29,9 @@ public class ContextMenuItem {
 	@JsonProperty
 	private String value;
 	
+	public ContextMenuItem() {
+	}
+	
 	public ContextMenuItem(String name, String icon, String value) {
 		super();
 		this.name = name;
@@ -54,6 +57,18 @@ public class ContextMenuItem {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 	
 }
