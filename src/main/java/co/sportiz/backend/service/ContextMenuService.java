@@ -2,6 +2,7 @@ package co.sportiz.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Iterables;
 
@@ -15,9 +16,16 @@ public class ContextMenuService {
 	@Autowired
 	private ContextMenuRepo contextMenuRepo;
 	
+	@Transactional
 	public ContextMenu fetchContextMenu() {
 		ContextMenu menus = new ContextMenu();
 		menus.setMenuItems(Iterables.toArray(contextMenuRepo.findAll(), ContextMenuItem.class));
 		return menus;
+	}
+
+	@Transactional
+	public void storeContextMenuItem(ContextMenuItem item) {
+		contextMenuRepo.save(item);
+		
 	}
 }
