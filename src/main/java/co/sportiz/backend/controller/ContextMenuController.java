@@ -12,7 +12,7 @@ public class ContextMenuController {
 	public @ResponseBody String readContextMenu() {
 		return "{\n"
 				+"	\"menu_items\" : [\n"
-				+"		{\\n"
+				+"		{\n"
 				+"			\"name\" : \"Football\",\n"
 				+"			\"icon\" : \"fa fa-chevron-circle-right\",\n"
 				+"			\"value\" : \"football\" \n"
