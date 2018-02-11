@@ -1,0 +1,21 @@
+package co.sportiz.backend.service;
+
+import org.springframework.stereotype.Service;
+
+import co.sportiz.backend.model.ContextMenu;
+import co.sportiz.backend.model.ContextMenuItem;
+
+@Service
+public class ContextMenuService {
+
+	public ContextMenu fetchContextMenu() {
+		ContextMenu menus = new ContextMenu();
+		menus.setMenuItems(new ContextMenuItem[] {
+				new ContextMenuItem("Football", "fa fa-chevron-circle-right", "football"),
+				new ContextMenuItem("Baseball", "fa fa-futbol-o", "baseball"),
+				new ContextMenuItem("Basket Ball", "fa fa-certificate", "basketball"),
+				new ContextMenuItem("Soccer", "fa fa-soccer-ball-o", "soccer")
+		});
+		return menus;
+	}
+}
