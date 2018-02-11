@@ -1,9 +1,9 @@
 heroku pg:psql postgresql-slippery-12804 --app sportiz
 \c d2b9gisbnmjjan;
 \dt
-	select * from context_menu;
+select * from context_menu;
 
-insert into context_menu values (1, 'Football', 'fa fa-chevron-circle-right', 'football');
-insert into context_menu values (2, 'Baseball', 'fa fa-futbol-o', 'baseball');
-insert into context_menu values (3, 'Basket Ball', 'fa fa-certificate', 'basketball');
-insert into context_menu values (4, 'Soccer', 'fa fa-soccer-ball-o', 'soccer');
+insert into context_menu values (1, 'fa fa-chevron-circle-right', 'Football', 'football');
+insert into context_menu values (2, 'fa fa-futbol-o', 'Baseball', 'baseball');
+insert into context_menu values (3, 'fa fa-certificate', 'Basket Ball', 'basketball');
+insert into context_menu values (4, 'fa fa-soccer-ball-o', 'Soccer', 'soccer');
