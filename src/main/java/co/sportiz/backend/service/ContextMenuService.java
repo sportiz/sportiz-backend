@@ -24,8 +24,8 @@ public class ContextMenuService {
 	}
 
 	@Transactional
-	public void storeContextMenuItem(ContextMenuItem item) {
-		contextMenuRepo.save(item);
+	public void storeContextMenuItem(String name, String icon, String value) {
+		contextMenuRepo.save(new ContextMenuItem(name, icon, value));
 		
 	}
 }

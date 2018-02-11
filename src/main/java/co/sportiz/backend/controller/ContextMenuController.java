@@ -1,6 +1,5 @@
 package co.sportiz.backend.controller;
 
-import static co.sportiz.backend.model.SportizResponse.ResponseStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.sportiz.backend.model.ContextMenu;
-import co.sportiz.backend.model.ContextMenuItem;
 import co.sportiz.backend.model.SportizResponse;
+import co.sportiz.backend.model.SportizResponse.ResponseStatus;
 import co.sportiz.backend.service.ContextMenuService;
 
 @Controller
@@ -28,9 +27,9 @@ public class ContextMenuController {
 	}
 
 	@RequestMapping( path="/", method=RequestMethod.POST)
-	public @ResponseBody SportizResponse storeNewContextMenuItem(@RequestParam ContextMenuItem item) {
+	public @ResponseBody SportizResponse storeNewContextMenuItem(@RequestParam String name, @RequestParam String icon, @RequestParam String value) {
 		try {
-			contextMenuService.storeContextMenuItem(item);
+			contextMenuService.storeContextMenuItem(name, icon, value);
 			return new SportizResponse(ResponseStatus.SUCCESS, "Context Menu added successfully.");
 		}catch (Exception e) {
 			return new SportizResponse(ResponseStatus.FAILED, e.getMessage());
