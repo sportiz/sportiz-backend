@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ContextMenuItem {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MENU_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 	
 	@Column

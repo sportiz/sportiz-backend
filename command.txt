@@ -1,0 +1,2 @@
+C:\Users\sagr17>heroku pg:psql postgresql-slippery-12804 -d d2b9gisbnmjjan -U eyhvfrlyzlieec -p 7ca9a9b21f4e606de2b8774549823cedb19058fdc967da143a380b7b065caa10
+ --app sportiz

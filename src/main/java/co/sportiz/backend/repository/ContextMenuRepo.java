@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import co.sportiz.backend.model.ContextMenuItem;
 
 @Repository
-public interface ContextMenuRepo extends CrudRepository<ContextMenuItem, Long>{
+public interface ContextMenuRepo extends CrudRepository<ContextMenuItem, Long>
+{
 
 }
