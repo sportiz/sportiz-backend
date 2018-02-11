@@ -10,7 +10,30 @@ public class ContextMenuController {
 	
 	@RequestMapping("/")
 	public @ResponseBody String readContextMenu() {
-		return "Hello Shashank!";
+		return "{"
+				+"	\"menu_items\" : ["
+				+"		{"
+				+"			\"name\" : \"Football\","
+				+"			\"icon\" : \"fa fa-chevron-circle-right\","
+				+"			\"value\" : \"football\" "
+				+"		},"
+				+"		{"
+				+"			\"name\" : \"Baseball\","
+				+"			\"icon\" : \"fa fa-futbol-o\","
+				+"			\"value\" : \"baseball\" "
+				+"		},"
+				+"		{"
+				+"			\"name\" : \"Basket Ball\","
+				+"			\"icon\" : \"fa fa-certificate\","
+				+"			\"value\" : \"basketball\" "
+				+"		},"
+				+"		{"
+				+"			\"name\" : \"Soccer\","
+				+"			\"icon\" : \"fa fa-soccer-ball-o\","
+				+"			\"value\" : \"soccer\""
+				+"		}"
+				+"	]"
+				+"}";
 	}
 
 }
