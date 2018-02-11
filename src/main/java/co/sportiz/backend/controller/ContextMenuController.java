@@ -3,6 +3,7 @@ package co.sportiz.backend.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.sportiz.backend.model.ContextMenu;
 import co.sportiz.backend.model.ContextMenuItem;
@@ -13,7 +14,7 @@ public class ContextMenuController {
 	
 	@CrossOrigin
 	@RequestMapping("/")
-	public ContextMenu readContextMenu() {
+	public @ResponseBody ContextMenu readContextMenu() {
 		ContextMenu menus = new ContextMenu();
 		menus.setMenuItems(new ContextMenuItem[] {
 				new ContextMenuItem("Football", "fa fa-chevron-circle-right", "football"),
