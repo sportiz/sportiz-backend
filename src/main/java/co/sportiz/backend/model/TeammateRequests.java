@@ -31,6 +31,10 @@ public class TeammateRequests {
 	@Column
 	@JsonProperty("msg")
 	private String message;
+
+	@Column
+	@JsonIgnore
+	private String sport;
 	
 	@Column
 	@JsonIgnore
@@ -96,4 +100,13 @@ public class TeammateRequests {
 		cordinates = new double[] { this.latitude, this.longitude };
 		return cordinates;
 	}
+
+	public String getSport() {
+		return sport;
+	}
+
+	public void setSport(String sport) {
+		this.sport = sport;
+	}
+	
 }
