@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,6 +40,7 @@ public class TeammateRequests {
 	@JsonIgnore
 	private double longitude;
 	
+	@Transient
 	private double[] cordinates;
 
 	public long getId() {

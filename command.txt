@@ -7,3 +7,6 @@ insert into context_menu values (1, 'fa fa-chevron-circle-right', 'Football', 'f
 insert into context_menu values (2, 'fa fa-futbol-o', 'Baseball', 'baseball');
 insert into context_menu values (3, 'fa fa-certificate', 'Basket Ball', 'basketball');
 insert into context_menu values (4, 'fa fa-soccer-ball-o', 'Soccer', 'soccer');
+
+
+select * from teammate_request;
