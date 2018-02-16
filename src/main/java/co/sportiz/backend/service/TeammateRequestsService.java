@@ -25,7 +25,7 @@ public class TeammateRequestsService {
 		if(sport != null) {
 			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
 		} else {
-			String sportName = contextMenuRepo.findOne().getValue();
+			String sportName = contextMenuRepo.findTop().getValue();
 			System.out.println(sportName);
 			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
 		}
