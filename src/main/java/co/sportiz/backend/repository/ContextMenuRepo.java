@@ -8,5 +8,5 @@ import co.sportiz.backend.model.ContextMenuItem;
 @Repository
 public interface ContextMenuRepo extends CrudRepository<ContextMenuItem, Long>
 {
-
+	public ContextMenuItem findOne();
 }

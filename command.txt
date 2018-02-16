@@ -10,3 +10,10 @@ insert into context_menu values (4, 'fa fa-soccer-ball-o', 'Soccer', 'soccer');
 
 
 select * from teammate_request;
+
+insert into teammate_request(id, latitude, longitude, message, mobile_number, name, sport) values (1, 38.955093, -77.425022
+				, 'Lets play tennis today', '1234567891', 'Sherlock Homes', 'tennis');
+insert into teammate_request(id, latitude, longitude, message, mobile_number, name, sport) values (2, 38.953097, -77.425012
+				, 'Need 4th player for tennis', '1234567890', 'John Watson', 'tennis');
+insert into teammate_request(id, latitude, longitude, message, mobile_number, name, sport) values (3, 38.950097, -77.425032
+				, 'Planning to play tennis. If anyone wants to join us.', '1234567892', 'Mike Walker', 'tennis');

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.google.common.collect.Iterables;
 
 import co.sportiz.backend.model.TeammateRequests;
+import co.sportiz.backend.repository.ContextMenuRepo;
 import co.sportiz.backend.repository.TeammateRequestsRepo;
 
 @Service
@@ -17,8 +18,17 @@ public class TeammateRequestsService {
 	@Autowired
 	private TeammateRequestsRepo teammateRequestsRepo;
 	
+	@Autowired
+	private ContextMenuRepo contextMenuRepo;
+	
 	public List<TeammateRequests> fetchRequestsForSports(String sport) {
-		return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
+		if(sport != null) {
+			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
+		} else {
+			String sportName = contextMenuRepo.findOne().getValue();
+			System.out.println(sportName);
+			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
+		}
 	}
 
 }
