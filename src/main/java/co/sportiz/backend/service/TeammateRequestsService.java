@@ -23,11 +23,11 @@ public class TeammateRequestsService {
 	
 	public List<TeammateRequests> fetchRequestsForSports(String sport) {
 		if(sport != null) {
-			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
+			return teammateRequestsRepo.findBySport(sport);
 		} else {
 			String sportName = contextMenuRepo.findAll().iterator().next().getValue();
 			System.out.println(sportName);
-			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findAll(), TeammateRequests.class));
+			return Arrays.asList(Iterables.toArray(teammateRequestsRepo.findBySport(sportName), TeammateRequests.class));
 		}
 	}
 
