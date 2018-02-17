@@ -39,7 +39,6 @@ public class TeammateRequestsController {
 	@CrossOrigin
 	@RequestMapping(path="/", method=RequestMethod.POST)
 	public  @ResponseBody SportizResponse storeRequestForGivenUser(@Valid TeammateRequests teammateRequests) {
-		System.out.println(teammateRequests.getName());
 		try {
 			teammateRequestService.storeTeammateRequest(teammateRequests);
 			return new SportizResponse(ResponseStatus.SUCCESS, "Teammate request added successfully.");
