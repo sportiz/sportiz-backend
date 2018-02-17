@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -55,6 +56,7 @@ public class TeammateRequests {
 		this.id = id;
 	}
 
+	@NotNull
 	public String getName() {
 		return name;
 	}
@@ -63,6 +65,7 @@ public class TeammateRequests {
 		this.name = name;
 	}
 
+	@NotNull
 	public String getMobileNubmer() {
 		return mobileNubmer;
 	}
@@ -71,6 +74,7 @@ public class TeammateRequests {
 		this.mobileNubmer = mobileNubmer;
 	}
 
+	@NotNull
 	public String getMessage() {
 		return message;
 	}
@@ -79,6 +83,7 @@ public class TeammateRequests {
 		this.message = message;
 	}
 
+	@NotNull
 	public double getLatitude() {
 		return latitude;
 	}
@@ -87,6 +92,7 @@ public class TeammateRequests {
 		this.latitude = latitude;
 	}
 
+	@NotNull
 	public double getLongitude() {
 		return longitude;
 	}
@@ -101,6 +107,7 @@ public class TeammateRequests {
 		return cordinates;
 	}
 
+	@NotNull
 	public String getSport() {
 		return sport;
 	}

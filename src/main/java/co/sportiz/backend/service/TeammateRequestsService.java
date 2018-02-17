@@ -24,4 +24,8 @@ public class TeammateRequestsService {
 		return teammateRequestsRepo.findBySport(sport);
 	}
 
+	public void storeTeammateRequest(TeammateRequests teammateRequests) {
+		teammateRequestsRepo.save(teammateRequests);
+	}
+
 }
