@@ -25,4 +25,10 @@ public class TeammateRequestsController {
 	public @ResponseBody List<TeammateRequests> readRequestForSport(@PathVariable String sport) {
 		return teammateRequestService.fetchRequestsForSports(sport);
 	}
+	
+	@CrossOrigin
+	@RequestMapping(path="/", method=RequestMethod.GET)
+	public @ResponseBody List<TeammateRequests> readRequestForFirstSport() {
+		return teammateRequestService.fetchRequestsForSports(null);
+	}
 }
