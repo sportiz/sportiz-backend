@@ -17,3 +17,6 @@ insert into teammate_request(id, latitude, longitude, message, mobile_number, na
 				, 'Need 4th player for tennis', '1234567890', 'John Watson', 'tennis');
 insert into teammate_request(id, latitude, longitude, message, mobile_number, name, sport) values (3, 38.950097, -77.425032
 				, 'Planning to play tennis. If anyone wants to join us.', '1234567892', 'Mike Walker', 'tennis');
+				
+insert into teammate_request(id, latitude, longitude, message, mobile_number, name, sport) values (4, 38.915093, -77.425022
+				, 'Lets play football today', '1221167891', 'Samual Wang', 'football');				
