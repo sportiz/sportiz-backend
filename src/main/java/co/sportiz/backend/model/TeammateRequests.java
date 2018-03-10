@@ -1,5 +1,7 @@
 package co.sportiz.backend.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,6 +46,10 @@ public class TeammateRequests {
 	@Column
 	@JsonIgnore
 	private double longitude;
+	
+	@Column
+	@JsonIgnore
+	private Timestamp createdTs;
 	
 	@Transient
 	private double[] cordinates;
@@ -114,6 +120,14 @@ public class TeammateRequests {
 
 	public void setSport(String sport) {
 		this.sport = sport;
+	}
+
+	public Timestamp getCreatedTs() {
+		return createdTs;
+	}
+
+	public void setCreatedTs(Timestamp createdTs) {
+		this.createdTs = createdTs;
 	}
 	
 }

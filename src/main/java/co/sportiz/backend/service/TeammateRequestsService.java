@@ -1,5 +1,6 @@
 package co.sportiz.backend.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class TeammateRequestsService {
 	}
 
 	public void storeTeammateRequest(TeammateRequests teammateRequests) {
+		teammateRequests.setCreatedTs(new Timestamp(System.currentTimeMillis()));
 		teammateRequestsRepo.save(teammateRequests);
 	}
 
