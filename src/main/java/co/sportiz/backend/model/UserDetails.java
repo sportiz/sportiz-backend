@@ -5,15 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="user_details")
 public class UserDetails {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "serial")
+    @Id
+    @SequenceGenerator(name="user_details_id_seq",
+                       sequenceName="user_details_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="user_details_id_seq")
+    @Column(updatable=false)
 	private long id;
 	
 	private String username;
