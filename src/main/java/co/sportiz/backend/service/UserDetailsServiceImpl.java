@@ -2,6 +2,8 @@ package co.sportiz.backend.service;
 
 import static java.util.Collections.emptyList;
 
+import java.security.InvalidParameterException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,6 +24,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	public void storeUserDetails(UserDetails details) {
+		if(userDetailsRepo.findByUsername(details.getUsername()) != null) {
+			throw new InvalidParameterException("Username already exists");
+		}
 		details.setPassword(bCryptPasswordEncoder.encode(details.getPassword()));
 		userDetailsRepo.save(details);
 	}
