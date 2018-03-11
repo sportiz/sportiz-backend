@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -18,9 +19,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Table(name="teammate_request")
 public class TeammateRequests {
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "serial")
+    @Id
+    @SequenceGenerator(name="teammate_request_id_seq",
+                       sequenceName="teammate_request_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="teammate_request_id_seq")
+    @Column(updatable=false)
 	@JsonIgnore
 	private long id;
 	
