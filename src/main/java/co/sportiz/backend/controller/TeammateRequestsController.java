@@ -43,7 +43,6 @@ public class TeammateRequestsController {
 			teammateRequestService.storeTeammateRequest(teammateRequests);
 			return new SportizResponse(ResponseStatus.SUCCESS, "Teammate request added successfully.");
 		}catch (Exception e) {
-			e.printStackTrace();
 			return new SportizResponse(ResponseStatus.FAILED, e.getMessage());
 		}
 	}
