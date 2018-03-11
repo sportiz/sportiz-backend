@@ -20,6 +20,7 @@ public class TeammateRequests {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "serial")
 	@JsonIgnore
 	private long id;
 	

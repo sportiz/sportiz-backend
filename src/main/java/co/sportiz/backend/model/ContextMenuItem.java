@@ -15,6 +15,7 @@ public class ContextMenuItem {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(columnDefinition = "serial")
 	private long id;
 	
 	@Column
