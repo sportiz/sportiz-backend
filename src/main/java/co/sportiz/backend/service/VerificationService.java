@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -28,7 +29,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class VerificationService {
 
+	private static final String EMAIL_PATTERN = 
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
 	public String sendVerficationCodeOnMail(String email) throws Exception {
+		if(email==null || !(Pattern.compile(EMAIL_PATTERN).matcher(email).matches())) {
+			throw new IllegalArgumentException("Email is not valid");
+		}
 		String verificationCode = new Integer(getFourDigitVerificationCode()).toString();
 		final String username = "shashankagrawal@sportiz.co";
 		final String password = decrypt("58UTcpJNyUy7v5wwueksJg==:Si0uLiqeRrbuXCmVYo2PSQ==", getSaltKey());
