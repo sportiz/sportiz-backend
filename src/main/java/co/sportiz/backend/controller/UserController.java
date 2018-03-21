@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.sportiz.backend.model.SportizResponse;
@@ -41,7 +42,7 @@ public class UserController {
     
     @CrossOrigin
     @PostMapping(path = "/sendcode")
-    public @ResponseBody SportizResponse sendVerificationCodeToMail(@RequestBody String emailId) {
+    public @ResponseBody SportizResponse sendVerificationCodeToMail(@RequestParam String emailId) {
         try{
         	String verificationCode = verificationService.sendVerficationCodeOnMail(emailId);
         	return new SportizResponse(ResponseStatus.SUCCESS, verificationCode);
