@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.sportiz.backend.model.SportizResponse;
-import co.sportiz.backend.model.UserDetails;
 import co.sportiz.backend.model.SportizResponse.ResponseStatus;
+import co.sportiz.backend.model.UserDetails;
 import co.sportiz.backend.service.UserDetailsServiceImpl;
+import co.sportiz.backend.service.VerificationService;
 
 @Controller
 @RequestMapping("/users")
@@ -21,6 +22,9 @@ public class UserController {
 	
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
+	
+	@Autowired
+	private VerificationService verificationService;
    
     @CrossOrigin
     @PostMapping(path = "/signup")
@@ -31,6 +35,17 @@ public class UserController {
         } catch (InvalidParameterException e) {
         	return new SportizResponse(ResponseStatus.FAILED, "Username already exists");
 		} catch (Exception e) {
+			return new SportizResponse(ResponseStatus.FAILED, e.getMessage());
+		}
+    }
+    
+    @CrossOrigin
+    @PostMapping(path = "/sendcode")
+    public @ResponseBody SportizResponse sendVerificationCodeToMail(@RequestBody String emailId) {
+        try{
+        	String verificationCode = verificationService.sendVerficationCodeOnMail(emailId);
+        	return new SportizResponse(ResponseStatus.SUCCESS, verificationCode);
+        } catch (Exception e) {
 			return new SportizResponse(ResponseStatus.FAILED, e.getMessage());
 		}
     }
