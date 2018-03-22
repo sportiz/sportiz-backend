@@ -19,7 +19,7 @@ public class CORSFilter extends OncePerRequestFilter {
 		res.setHeader("Access-Control-Max-Age", "3600");
 		res.setHeader("Access-Control-Allow-Headers",
 				"X-PINGOTHER,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization");
-		res.addHeader("Access-Control-Expose-Headers", "xsrf-token");
+		res.addHeader("Access-Control-Expose-Headers", "Authorization");
 		if ("OPTIONS".equals(req.getMethod())) {
 			res.setStatus(HttpServletResponse.SC_OK);
 		} else {
