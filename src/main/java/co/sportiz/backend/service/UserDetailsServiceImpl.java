@@ -39,4 +39,16 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         }
         return new User(userDetails.getUsername(), userDetails.getPassword(), emptyList());
     }
+
+	public void updateUserDetails(UserDetails details) {
+		UserDetails detailsInDb = userDetailsRepo.findByUsername(details.getUsername());
+		if( detailsInDb == null) {
+			throw new InvalidParameterException("Invalid Username. Not able to find user.");
+		} else if( details.getOldPassword() == null || detailsInDb.getPassword() == null || !(detailsInDb.getPassword().equals(bCryptPasswordEncoder.encode(details.getOldPassword())))){
+			throw new InvalidParameterException("Invalid Password. Old password not matching.");
+		} else {
+			detailsInDb.setPassword(bCryptPasswordEncoder.encode(details.getPassword()));
+			userDetailsRepo.save(detailsInDb);
+		}
+	}
 }

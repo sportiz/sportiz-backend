@@ -50,4 +50,15 @@ public class UserController {
 			return new SportizResponse(ResponseStatus.FAILED, e.getMessage());
 		}
     }
+    
+    @CrossOrigin
+    @PostMapping(path = "/changepassword")
+    public @ResponseBody SportizResponse changeUserPassword(@RequestBody UserDetails user) {
+        try{
+        	userDetailsService.updateUserDetails(user);
+        	return new SportizResponse(ResponseStatus.SUCCESS, "Account is updated successfully.");
+        } catch (Exception e) {
+			return new SportizResponse(ResponseStatus.FAILED, e.getMessage());
+		}
+    }
 }

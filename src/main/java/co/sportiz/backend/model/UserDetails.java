@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="user_details")
@@ -24,6 +25,9 @@ public class UserDetails {
 	private String username;
 	private String password;
 
+	@Transient
+	private String oldPassword;
+	
 	public long getId() {
 		return id;
 	}
@@ -43,4 +47,13 @@ public class UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+	
 }
