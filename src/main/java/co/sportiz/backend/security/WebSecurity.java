@@ -1,5 +1,7 @@
 package co.sportiz.backend.security;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -22,9 +24,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "/requests/").authenticated().anyRequest()
-				.permitAll().and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
-				.and().addFilter(new JWTAuthenticationFilter(authenticationManager()))
+		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "/requests/").authenticated()
+				.anyRequest().permitAll().and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutSuccessHandler((httpServletRequest, httpServletResponse, authentication) -> {
+					httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+				}).and().addFilter(new JWTAuthenticationFilter(authenticationManager()))
 				.addFilter(new JWTAuthorizationFilter(authenticationManager()))
 				.addFilterBefore(new CORSFilter(), ChannelProcessingFilter.class);
 	}
