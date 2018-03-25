@@ -45,6 +45,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		if( detailsInDb == null) {
 			throw new InvalidParameterException("Invalid Username. Not able to find user.");
 		} else if( details.getOldPassword() == null || detailsInDb.getPassword() == null || !(detailsInDb.getPassword().equals(bCryptPasswordEncoder.encode(details.getOldPassword())))){
+			System.out.println("*********"+details.getOldPassword()+"***********");
+			System.out.println("*********"+detailsInDb.getPassword()+"***********");
+			System.out.println("*********"+bCryptPasswordEncoder.encode(details.getOldPassword())+"***********");
 			throw new InvalidParameterException("Invalid Password. Old password not matching.");
 		} else {
 			detailsInDb.setPassword(bCryptPasswordEncoder.encode(details.getPassword()));

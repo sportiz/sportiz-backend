@@ -55,7 +55,6 @@ public class UserController {
     @PostMapping(path = "/changepassword")
     public @ResponseBody SportizResponse changeUserPassword(@RequestBody UserDetails user) {
         try{
-        	System.out.println("*************"+user.getOldPassword());
         	userDetailsService.updateUserDetails(user);
         	return new SportizResponse(ResponseStatus.SUCCESS, "Account is updated successfully.");
         } catch (Exception e) {
