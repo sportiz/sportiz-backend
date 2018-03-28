@@ -59,6 +59,10 @@ public class TeammateRequests {
 	
 	@Transient
 	private double[] cordinates;
+	
+	@Column(name="creator_email")
+	@JsonProperty("emailId")
+	private String creatorEmailId;
 
 	public long getId() {
 		return id;
@@ -134,6 +138,15 @@ public class TeammateRequests {
 
 	public void setCreatedTs(Timestamp createdTs) {
 		this.createdTs = createdTs;
+	}
+
+	@NotNull
+	public String getCreatorEmailId() {
+		return creatorEmailId;
+	}
+
+	public void setCreatorEmailId(String creatorEmailId) {
+		this.creatorEmailId = creatorEmailId;
 	}
 	
 }
