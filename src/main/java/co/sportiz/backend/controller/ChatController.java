@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.sportiz.backend.model.Message;
 
@@ -25,7 +26,8 @@ public class ChatController {
 	
     @CrossOrigin
     @PostMapping(path = "/sendmessage")
-    public void signUp(@RequestBody Message message) {
+    @ResponseBody
+    public void sendMessage(@RequestBody Message message) {
     	Map<String, Object> map = new HashMap<>();
 		map.put(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON);
 		this.messagingTemplate.convertAndSendToUser(message.getReciver(), QUEUE_PATH_LOCATOR, message.getContent(), map);
