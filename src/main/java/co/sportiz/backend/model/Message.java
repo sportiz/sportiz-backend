@@ -16,6 +16,10 @@ public class Message {
 	@JsonProperty
 	private long time;
 
+	public Message() {
+	
+	}
+	
 	public Message(String reciver, String sender, String content, long time) {
 		super();
 		this.reciver = reciver;
