@@ -28,7 +28,7 @@ public class ChatController {
     public String sendMessage(@RequestBody Message message) {
     	Map<String, Object> map = new HashMap<>();
 		map.put(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON);
-		this.messagingTemplate.convertAndSendToUser(message.getReciver(), QUEUE_PATH_LOCATOR, message.getContent(), map);
+		this.messagingTemplate.convertAndSendToUser(message.getReciver(), QUEUE_PATH_LOCATOR, message.getContent());
 		System.out.println("Message pushed to queue for user "+message.getReciver()+" with content as "+message.getContent());
 		return "SUCCESS";
     }
