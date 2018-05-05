@@ -1,5 +1,6 @@
 package co.sportiz.backend.controller;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,11 +28,11 @@ public class ChatController {
     @CrossOrigin
     @PostMapping(path = "/sendmessage")
     @ResponseBody
-    public void sendMessage(@RequestBody Message message) {
+    public void sendMessage(@RequestBody Message message, Principal principal) {
     	Map<String, Object> map = new HashMap<>();
 		map.put(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON);
 		this.messagingTemplate.convertAndSendToUser(message.getReciver(), QUEUE_PATH_LOCATOR, message.getContent(), map);
-		System.out.println("Message pushed to queue for user "+message.getReciver()+" with content as "+message.getContent());
+		System.out.println("Message pushed to queue for user "+principal.getName()+" with content as "+message.getContent());
     }
 	
 }
